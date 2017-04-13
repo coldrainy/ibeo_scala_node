@@ -29,7 +29,6 @@ const ibeosdk::Version::Build build;
 const std::string info = "IbeoSdkScalaLiveDemo";
 
 ibeosdk::Version appVersion(majorVersion, minorVersion, revision, patchLevel, build, info);
-IbeoSDK ibeoSDK;
 
 TimeConversion tc;
 
@@ -156,3 +155,30 @@ public:
 				<< "LogMessage (Debug) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
 	}
 }; // AllScalaListener
+
+
+int checkArguments(const int argc, const char** argv, bool& hasLogFile)
+{
+	const int minNbOfNeededArguments = 2;
+	const int maxNbOfNeededArguments = 3;
+
+	bool wrongNbOfArguments = false;
+	if (argc < minNbOfNeededArguments) {
+		std::cerr << "Missing argument" << std::endl;
+		wrongNbOfArguments = true;
+	}
+	else if (argc > maxNbOfNeededArguments) {
+		std::cerr << "Too many argument" << std::endl;
+		wrongNbOfArguments = true;
+	}
+
+	if (wrongNbOfArguments) {
+		std::cerr << argv[0] << " " << " IP [LOGFILE]" << std::endl;
+		std::cerr << "\tIP is the ip address of the Scala sensor, e.g. 192.168.0.1." << std::endl;
+		std::cerr << "\tLOGFILE name of the log file. If ommitted, the log output will be performed to stderr." << std::endl;
+		return 1;
+	}
+
+	hasLogFile = (argc == maxNbOfNeededArguments);
+	return 0;
+}
