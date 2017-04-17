@@ -147,10 +147,13 @@ add_executable(${PROJECT_NAME} src/ibeo_scala_node.cpp
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+
+link_directories(
+    ${catkin_LIB_DIRS}  /home/guolindong/Downloads/IbeoSDK5.0.4/lib/)
+
 ## Specify libraries to link a library or executable target against
 target_link_libraries(ibeo_scala_node 
-	${catkin_LIBRARIES}
-	/home/guolindong/Downloads/IbeoSDK5.0.4/lib/libibeosdk_d.so)
+	${catkin_LIBRARIES} libibeosdk_d.so)
 
 
 
