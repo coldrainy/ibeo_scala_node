@@ -59,10 +59,10 @@ public:
 	//========================================
 	void onData(const ScanLux* const scan)
 	{
-		logInfo << std::setw(5) << scan->getSerializedSize() << " Bytes  "
-				<< "Scan 2202 received: # " << scan->getScanNumber()
-			<<"  time: " << tc.toString(scan->getStartTimestamp().toPtime(), 3)
-			<< std::endl;
+		// logInfo << std::setw(5) << scan->getSerializedSize() << " Bytes  "
+		// 		<< "Scan 2202 received: # " << scan->getScanNumber()
+		// 	<<"  time: " << tc.toString(scan->getStartTimestamp().toPtime(), 3)
+		// 	<< std::endl;
 	}
 
 	//========================================
@@ -77,9 +77,9 @@ public:
 	//========================================
 	void onData(const ObjectListLux* const objs)
 	{
-		logInfo << std::setw(5) << objs->getSerializedSize() << " Bytes  "
-				<< "ObjectList 2221 received. #Obj:" << objs->getNumberOfObjects()
-				<< std::endl;
+		// logInfo << std::setw(5) << objs->getSerializedSize() << " Bytes  "
+				// << "ObjectList 2221 received. #Obj:" << objs->getNumberOfObjects()
+				// << std::endl;
 	}
 
 	//========================================
@@ -108,51 +108,51 @@ public:
 
 	void onData(const VehicleStateBasicLux* const vsb)
 	{
-		logInfo << std::setw(5) << vsb->getSerializedSize() << " Bytes  "
-				<< "VSB for Scan #: " << vsb->getScanNumber() << "  "
-				<< tc.toString(vsb->getTimestamp().toPtime()) << std::endl;
+		// logInfo << std::setw(5) << vsb->getSerializedSize() << " Bytes  "
+				// << "VSB for Scan #: " << vsb->getScanNumber() << "  "
+				// << tc.toString(vsb->getTimestamp().toPtime()) << std::endl;
 	}
 
 	//========================================
 	void onData(const DeviceStatus* const deviceStatus)
 	{
-		logInfo << std::setw(5) << deviceStatus->getSerializedSize() << " Bytes  "
-				<< "DevStat received" << std::endl;
+		// logInfo << std::setw(5) << deviceStatus->getSerializedSize() << " Bytes  "
+				// << "DevStat received" << std::endl;
 	}
 
 	//========================================
 	void onData(const DeviceStatus6303* const deviceStatus)
 	{
-		logInfo << std::setw(5) << deviceStatus->getSerializedSize() << " Bytes  "
-				<< "DevStat 0x6303 received" << std::endl;
+		// logInfo << std::setw(5) << deviceStatus->getSerializedSize() << " Bytes  "
+				// << "DevStat 0x6303 received" << std::endl;
 	}
 
 	//========================================
 	virtual void onData(const LogMessageError* const logMsg)
 	{
-		logInfo << std::setw(5) << logMsg->getSerializedSize() << " Bytes  "
-				<< "LogMessage (Error) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
+		// logInfo << std::setw(5) << logMsg->getSerializedSize() << " Bytes  "
+				// << "LogMessage (Error) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
 	}
 
 	//========================================
 	virtual void onData(const LogMessageWarning* const logMsg)
 	{
-		logInfo << std::setw(5) << logMsg->getSerializedSize() << " Bytes  "
-				<< "LogMessage (Warning) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
+		// logInfo << std::setw(5) << logMsg->getSerializedSize() << " Bytes  "
+				// << "LogMessage (Warning) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
 	}
 
 	//========================================
 	virtual void onData(const LogMessageNote* const logMsg)
 	{
-		logInfo << std::setw(5) << logMsg->getSerializedSize() << " Bytes  "
-				<< "LogMessage (Note) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
+		// logInfo << std::setw(5) << logMsg->getSerializedSize() << " Bytes  "
+				// << "LogMessage (Note) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
 	}
 
 	//========================================
 	virtual void onData(const LogMessageDebug* const logMsg)
 	{
-		logInfo << std::setw(5) << logMsg->getSerializedSize() << " Bytes  "
-				<< "LogMessage (Debug) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
+		// logInfo << std::setw(5) << logMsg->getSerializedSize() << " Bytes  "
+				// << "LogMessage (Debug) received: time: " << logMsg->getHeaderNtpTime().toPtime() << ": " << logMsg->getMessage() << std::endl;
 	}
 }; // AllScalaListener
 

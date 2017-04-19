@@ -8,7 +8,6 @@
  * \description
  * 		ROS driver node for scala libar, using ibeoSDK
  *----------------------------------------------------------*/
-
 #include "ros/ros.h"
 
 #include "ibeo_scala_node.h"
@@ -33,7 +32,7 @@ int main(int argc, char **argv)
 	// 	exit(checkResult);
 	// int currArg = 1;
 
-	std::string ip = "192.168.1.57";
+	std::string ip = "192.168.1.52";
 
 	const off_t maxLogFileSize = 1000000;
 
@@ -64,7 +63,7 @@ int main(int argc, char **argv)
 
 	scala.getConnected();
 
-	// ros::Rate loop_rate(10);
+	ros::Rate loop_rate(25);
 
 	while(ros::ok())
 	{
@@ -72,14 +71,14 @@ int main(int argc, char **argv)
 			ROS_INFO("!scala.isConnected\n");
 			return -1;
 		}
-#		ifdef _WIN32
-			::Sleep(1);
-#		else // _WIN32
-			sleep(1);
-#		endif // _WIN32
+// #		ifdef _WIN32
+// 			::Sleep(1);
+// #		else // _WIN32
+// 			sleep(1);
+// #		endif // _WIN32
 
 		ros::spinOnce();
-		// loop_rate.sleep();
+		loop_rate.sleep();
 	}
 	// ros::waitForShutdown();
 	return 0;
