@@ -7,5 +7,5 @@ Please reference to the ibeo website(http://www.ibeo-as.com/) to get ibeoSDK, an
 #catkin_make
 Need to adjust the "include_directories" and "target_link_libraries" in CMakeList.txt.
 =======
->>>>>>> 7551ebdbe66faa76ea07fbd27ae93581e452634b
+>>>>>>> 
 
