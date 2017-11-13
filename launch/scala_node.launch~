@@ -1,0 +1,6 @@
+<launch>
+
+  <node pkg="ibeo_scala_node" type="ibeo_scala_node" name="ibeo_scala_node" output="screen">
+  </node>
+
+</launch>
