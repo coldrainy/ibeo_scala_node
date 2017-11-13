@@ -1,0 +1,9 @@
+<!-- ibeo_scala_node scala_pointcloud launch file -->
+<launch>
+
+  <node pkg="ibeo_scala_node" type="scala_pointcloud" name="scala_pointcloud" output="screen">
+    <param name="device_ip" type="string" value="192.168.1.52" />
+    <param name="port" type="int" value="12004" />
+  </node>
+
+</launch>

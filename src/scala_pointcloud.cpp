@@ -13,15 +13,14 @@
 #include "ibeo_scala_node.h"
 int main(int argc, char **argv)
 {
-	ros::init(argc, argv, "ibeo_scala_node");
+	ros::init(argc, argv, "scala_pointcloud");
 	ros::NodeHandle nh;
 	ros::NodeHandle pnh("~");
 
-	// std::string ip_address;
-	// int ip_port;
-
-	// pnh.param<std::string>("ip_address"， ip_address， "192.168.1.57");
-	// pnh.param<int>("ip_port", ip_port, 12004);
+	std::string device_ip;
+	int port;
+	pnh.param<std::string>("device_ip",device_ip,"192.168.1.52");
+	pnh.param<int>("port", port, 12004);
 
 	std::cerr << argv[0] << " Version " << appVersion.toString();
 	std::cerr << "  using IbeoSDK " << ibeoSDK.getVersion().toString() << std::endl;
@@ -32,7 +31,7 @@ int main(int argc, char **argv)
 	// 	exit(checkResult);
 	// int currArg = 1;
 
-	std::string ip = "192.168.1.52";
+	//std::string ip = "192.168.1.52";
 
 	const off_t maxLogFileSize = 1000000;
 
@@ -55,8 +54,8 @@ int main(int argc, char **argv)
 
 	AllScalaListener allScalaListener;
 
-	const uint16_t port = getPort(ip, 12004);
-	IbeoScala scala(ip, port);
+	//const uint16_t port = getPort(ip, 12004);
+	IbeoScala scala(device_ip, port);
 	scala.setLogFileManager(&logFileManager);
 
 	scala.registerListener(&allScalaListener);

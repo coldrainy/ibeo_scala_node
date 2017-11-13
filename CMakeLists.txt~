@@ -6,23 +6,44 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
+find_package(PCL REQUIRED)
+
+find_package(MRPT 1.5 EXACT REQUIRED
+        base
+        slam
+        gui
+        opengl
+        maps
+        obs
+        )
+
+catkin_package()
+
 include_directories(
   ${catkin_INCLUDE_DIRS}
 	include/ibeo_scala_node
-	/home/guolindong/Downloads/IbeoSDK5.0.4/src
+	/home/guolindong/CyberC3/IbeoSDK5.0.4/src
 )
 
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/ibeo_scala_node.cpp
 # )
 
-add_executable(${PROJECT_NAME} src/ibeo_scala_node.cpp
-															 include/ibeo_scala_node/ibeo_scala_node.h)
+add_executable(scala_pointcloud
+		src/scala_pointcloud.cpp
+)
 
 link_directories(
-    ${catkin_LIB_DIRS}  /home/guolindong/Downloads/IbeoSDK5.0.4/lib/)
+    ${catkin_LIB_DIRS}  
+		/home/guolindong/CyberC3/IbeoSDK5.0.4/libs/
+		/usr/lib/
+)
 
-target_link_libraries(ibeo_scala_node 
-	${catkin_LIBRARIES} libibeosdk_d.so)
+target_link_libraries(scala_pointcloud
+		libibeosdk_d.so
+		${catkin_LIBRARIES} 
+		${MRPT_LIBS}
+		${PCL_LIBRARIES}
+)
 
 
